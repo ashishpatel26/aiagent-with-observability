@@ -38,7 +38,7 @@ A comprehensive AI agent implementation using **LangGraph, CrewAI, OpenRouter, a
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ashishpatel26/aiagent-with-observability.git
    cd aiagent-with-observability
    ```
 2. Install dependencies:
@@ -101,7 +101,7 @@ sequenceDiagram
    participant Docker
    participant Langfuse
 
-   User->>Git: git clone <repository-url>
+   User->>Git: git clone https://github.com/ashishpatel26/aiagent-with-observability.git
    User->>uv: uv sync
    User->>User: cp .env.example .env
    User->>User: Edit .env with API keys
