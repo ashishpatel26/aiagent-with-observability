@@ -118,6 +118,47 @@ sequenceDiagram
 - Docker containers should start successfully
 - Langfuse dashboard accessible at http://localhost:3000
 
+### 🔑 Langfuse API Key Setup
+
+After starting Langfuse, you need to generate API keys for observability integration:
+
+1. **Access Langfuse Dashboard**
+   ```bash
+   # Open your browser and go to:
+   http://localhost:3000
+   ```
+
+2. **Create an Account**
+   - Click "Sign Up" or "Create Account"
+   - Fill in your details (email, password)
+   - Verify your email if required
+
+3. **Generate API Keys**
+   - Go to **Settings** → **API Keys** (or **Project Settings**)
+   - Click **"Create new API key"** or **"Generate Keys"**
+   - You'll see two keys:
+     - **Public Key** (starts with `pk-`)
+     - **Secret Key** (starts with `sk-`)
+
+4. **Configure Environment Variables**
+   ```bash
+   # Edit your .env file with the generated keys:
+   LANGFUSE_PUBLIC_KEY=pk-your-public-key-here
+   LANGFUSE_SECRET_KEY=sk-your-secret-key-here
+   LANGFUSE_BASE_URL=http://localhost:3000
+   ```
+
+5. **Verify Configuration**
+   ```bash
+   # Test that keys work by running the agent:
+   uv run scripts/run_agent.py
+   ```
+
+**🔒 Security Notes:**
+- Keep your `SECRET_KEY` secure and never commit it to version control
+- The `PUBLIC_KEY` is safe to share in client-side code
+- Use different keys for development/production environments
+
 ## Usage
 
 ### Interactive Chatbot
@@ -179,6 +220,41 @@ Task: ╭───────────────────────�
 *See [assets/agent_output_example.txt](assets/agent_output_example.txt) for the complete output.*
 
 This executes a predefined task using the CrewAI framework with full observability enabled. The agent automatically synchronizes with CrewAI Plus for trace batch management, providing detailed execution insights and performance monitoring.
+
+## 📸 Screenshots & Observability Demos
+
+### 🔍 Langfuse Observability Dashboard
+
+<div align="center">
+<img src="assets/langfuse_observability_trace.jpg" alt="Langfuse Observability Trace" width="800">
+<p><em>Langfuse dashboard showing comprehensive AI agent observability traces</em></p>
+</div>
+
+### 🤖 CrewAI Agent Execution Flow
+
+<div align="center">
+
+#### 1. Agent Input Processing
+<img src="assets/1_CrewAI_Input.jpg" alt="CrewAI Input Processing" width="800">
+<p><em>CrewAI agent receiving and processing input tasks</em></p>
+
+#### 2. LLM Call & Response
+<img src="assets/2_CrewAI_LLM_Call_Response.jpg" alt="CrewAI LLM Response" width="800">
+<p><em>CrewAI orchestrating LLM calls and processing responses</em></p>
+
+#### 3. Final Agent Response
+<img src="assets/3_Agent_Response.jpg" alt="CrewAI Final Response" width="800">
+<p><em>Complete agent execution with final results and trace finalization</em></p>
+
+</div>
+
+### 📊 Key Observability Features Demonstrated
+
+- **🔄 Real-time Tracing**: Live monitoring of agent interactions
+- **🧠 LLM Call Tracking**: Detailed view of language model interactions
+- **📈 Performance Metrics**: Response times and execution analytics
+- **🔗 Trace Linking**: Connected workflows across multiple agents
+- **📋 Session Management**: Organized trace batches with access codes
 
 ## Configuration
 
