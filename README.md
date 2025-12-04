@@ -2,6 +2,10 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://python.org) [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![LangGraph](https://img.shields.io/badge/LangGraph-1.0+-orange.svg)](https://langchain-ai.github.io/langgraph/) [![LangChain](https://img.shields.io/badge/LangChain-0.1+-red.svg)](https://python.langchain.com/) [![CrewAI](https://img.shields.io/badge/CrewAI-1.6+-purple.svg)](https://www.crewai.com/)
 
+---
+
+![](assets/AIAgentwithObservability.png)
+
 A comprehensive AI agent implementation using **LangGraph, CrewAI, OpenRouter, and Langfuse** for intelligent conversations and observability.
 
 [Quick Start](#setup) • [Features](#features) • [Installation](#installation) • [Usage](#usage) • [Documentation](#architecture)
